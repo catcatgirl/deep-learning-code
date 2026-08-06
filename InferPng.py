@@ -6,13 +6,13 @@ import torchvision.transforms as T
 from ModelDeepgad import DeepGAD
 
 # ===================== 推理参数 =====================
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-CKPT_PATH = r"E:\AI_anke\MyCode\logs\exp4\checkpoints\best_model_by_dicce.pth"
 IMG_SIZE = 256
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+CKPT_PATH = r"E:\liuying\MyCode\deep-learning-code\logs\exp8\checkpoints\best_model_by_dice.pth"
 # 患者输入文件夹
-INPUT_NCCT_DIR = r"E:\data\test\png2\testA"
-# INPUT_LOWDOSE_DIR =  r"E:\data\png\valB"
-OUTPUT_DIR = r"E:\AI_anke\MyCode\logs\exp4\test"
+INPUT_NCCT_DIR = r"E:\liuying\data\test\BraTS_png\testA"
+exp_root = os.path.dirname(os.path.dirname(CKPT_PATH))
+OUTPUT_DIR = os.path.join(exp_root, "test")
 # =====================================================
 
 def load_model():
