@@ -228,7 +228,7 @@ if __name__ == "__main__":
     #     sampling_step=SAMPLING_STEP,
     #     select_patient_num=20
     # )
-    # 第二步：过滤全黑切片（你现在直接运行这一步就行）
+    # 第二步：过滤全黑切片
     # filter_black_slices(PNG_OUTPUT_ROOT, 8, True)
     # 第三步：按患者划分 train/val/test
     split_dataset_by_patient(
