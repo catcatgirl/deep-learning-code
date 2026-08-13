@@ -121,6 +121,7 @@ class Trainer:
             opt_G.zero_grad()
             fake_full = self.model.G_A(input_2ch)
             pred_fake = self.model.D_A(fake_full)
+
             loss_adv_G = self.criterion_gan(pred_fake, real_label)
             loss_l1_G = self.criterion_l1(fake_full, gt_full) * self.LAMBDA_L1
             rec_2ch = self.model.G_B(fake_full)
@@ -130,7 +131,7 @@ class Trainer:
             # loss_vessel = self.vessel_loss(fake_full, gt_full) * self.LAMBDA_VESSEL
             loss_vessel = 0.0
 
-            loss_G = loss_adv_G + loss_l1_G + loss_cycle + loss_vessel
+            loss_G = loss_adv_G + loss_cycle + loss_l1_G + loss_vessel
             loss_G.backward()
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
             opt_G.step()
