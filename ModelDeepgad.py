@@ -2,11 +2,6 @@ import torch
 import torch.nn as nn
 from torch import Tensor
 
-# ==============================================================================
-# 完全对齐原版CycleGAN实现，适配DeepGAD双通道输入
-# 主干结构与官方CycleGAN 100%一致，仅修改输入输出通道数
-# ==============================================================================
-
 class _ResidualBlock(nn.Module):
     """原版残差块：反射填充 + 卷积，无零填充，边缘效果更好"""
     def __init__(self, channels: int):
